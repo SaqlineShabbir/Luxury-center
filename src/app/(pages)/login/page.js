@@ -43,7 +43,7 @@ const Signup = () => {
 
             <div className="min-h-screen flex items-center justify-center">
                 <div className="bg-white p-8 rounded-lg shadow-xl w-96">
-                    <h2 className="text-3xl font-bold mb-6 text-slate-700">Create an account</h2>
+                    <h2 className="text-3xl font-bold mb-6 text-slate-700">Login</h2>
                     <form onSubmit={handleSubmit}>
                         <div className="mb-4">
                             <input
