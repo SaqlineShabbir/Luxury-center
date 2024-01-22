@@ -1,4 +1,4 @@
-import MaxWidthWrapper from "@/app/lib/MaxWidthWrapper";
+import MaxWidthWrapper from "../../lib/MaxWidthWrapper";
 import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 
 
@@ -22,7 +22,7 @@ const Footer = () => {
                             </div> <br />
 
                             <p className=" text-gray-300 text-sm">
-                                &copy; {currentYear} Sujon Sheikh. All rights reserved.
+                                &copy; {currentYear} Sabbir Hossain. All rights reserved.
                             </p>
                         </div>
 

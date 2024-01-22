@@ -1,6 +1,6 @@
-import Footer from '@/app/components/shared/Footer';
-import NavBar from '@/app/components/shared/Navbar';
-import MaxWidthWrapper from '@/app/lib/MaxWidthWrapper';
+import Footer from '../../components/shared/Footer';
+import NavBar from '../../components/shared/Navbar';
+import MaxWidthWrapper from '../../lib/MaxWidthWrapper';
 import { MdOutlineMarkEmailRead, MdLocationCity } from 'react-icons/md';
 import { FaPhoneVolume } from 'react-icons/fa6';
 

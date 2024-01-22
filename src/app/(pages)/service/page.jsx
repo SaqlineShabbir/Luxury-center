@@ -1,8 +1,7 @@
-import Services from '@/app/components/services/services';
-import Footer from '@/app/components/shared/Footer';
-import NavBar from '@/app/components/shared/Navbar';
-import MaxWidthWrapper from '@/app/lib/MaxWidthWrapper';
-
+import Services from '../../components/services/Services';
+import Footer from '../../components/shared/Footer';
+import NavBar from '../../components/shared/Navbar';
+import MaxWidthWrapper from '../../lib/MaxWidthWrapper';
 
 const Service = () => {
     return (
