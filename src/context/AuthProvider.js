@@ -18,9 +18,11 @@ const AuthProvider = ({ children }) => {
         try {
             const response = await fetch('/api/user');
 
-
             const result = await response.json();
-            setUser(result.user);
+            console.log('resullt', result)
+            if (result?.user) {
+                setUser(result.user);
+            }
 
         } catch (error) {
             console.error('Error fetching user data:', error);
