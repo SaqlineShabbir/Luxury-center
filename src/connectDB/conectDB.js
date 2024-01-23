@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 export async function connect() {
 
-    console.log('my db', process.env.DB_URI)
+
     try {
         mongoose.connect(process.env.DB_URI)
         //`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.mieka.mongodb.net/`

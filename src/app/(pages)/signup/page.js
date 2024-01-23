@@ -7,6 +7,8 @@ import Pinkbtn from '@/app/components/Pinkbtn';
 
 import toast, { Toaster } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import NavBar from '@/app/components/shared/Navbar';
+import Footer from '@/app/components/shared/Footer';
 // import Pinkbtn from '@/app/components/Pinkbtn';
 
 const Signup = () => {
@@ -47,7 +49,7 @@ const Signup = () => {
 
     return (
         <main>
-
+            <NavBar></NavBar>
             <div className="min-h-screen flex items-center justify-center">
                 <div className="bg-white p-8 rounded-lg shadow-xl w-96">
                     <h2 className="text-3xl font-bold mb-6 text-slate-700">Create an account</h2>
@@ -112,6 +114,7 @@ const Signup = () => {
                     </form>
                 </div>
             </div>
+            <Footer></Footer>
         </main>
     )
 }

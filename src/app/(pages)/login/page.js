@@ -2,16 +2,20 @@
 import Link from 'next/link'
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Pinkbtn from '@/app/components/Pinkbtn';
 import toast, { Toaster } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import NavBar from '@/app/components/shared/Navbar';
+import Footer from '@/app/components/shared/Footer';
+import { AuthContext } from '@/context/AuthProvider';
 // import Pinkbtn from '@/app/components/Pinkbtn';
 
 const Signup = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const router = useRouter()
+    const { fetchUser } = useContext(AuthContext);
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
@@ -24,7 +28,7 @@ const Signup = () => {
             });
             console.log(response)
             if (response.ok) {
-
+                fetchUser()
                 router.push('/');
                 toast.success('successfully Loggedin');
             } else {
@@ -40,7 +44,7 @@ const Signup = () => {
     }
     return (
         <main>
-
+            <NavBar></NavBar>
             <div className="min-h-screen flex items-center justify-center">
                 <div className="bg-white p-8 rounded-lg shadow-xl w-96">
                     <h2 className="text-3xl font-bold mb-6 text-slate-700">Login</h2>
@@ -81,6 +85,7 @@ const Signup = () => {
                     </form>
                 </div>
             </div>
+            <Footer></Footer>
         </main>
     )
 }

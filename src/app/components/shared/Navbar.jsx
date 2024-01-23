@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { AiOutlineMenuUnfold, AiOutlineClose } from "react-icons/ai";
@@ -10,10 +10,13 @@ import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 import MaxWidthWrapper from '@/app/lib/MaxWidthWrapper';
 import Pinkbtn from '../Pinkbtn';
+import { AuthContext } from '@/context/AuthProvider';
 
 
 const NavBar = () => {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const { user } = useContext(AuthContext);
+
     const pathname = usePathname();
 
     const toggleMobileMenu = () => {
@@ -47,7 +50,7 @@ const NavBar = () => {
                                 <p className='text-lg text-slate-500'>{link.name}</p>
                             </Link>
                         ))}
-                        <Link href="/login" ><button className='px-10 py-1 bg-green-300 text-medium text-slate-100 font-semibold mt-2'>Login</button></Link>
+                        {!user?.email && <Link href="/login" ><button className='px-10 py-1 bg-green-300 text-medium text-slate-100 font-semibold mt-2'>Login</button></Link>}
                     </div>
 
                     <div className="sm:hidden">

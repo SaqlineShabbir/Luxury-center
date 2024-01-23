@@ -5,7 +5,7 @@ import Profession from './components/home/Profession'
 import Testimonials from './components/home/Testimonials'
 import Message from './components/home/Message'
 import Footer from './components/shared/Footer'
-
+import '../../src/app/globals.css';
 export default function Home() {
   return (
     <main className="bg-slate-100">

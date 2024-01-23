@@ -18,13 +18,7 @@ const DashBoardLayout = ({ children }) => {
                         </div>
 
                         <div>
-                            <User
-                                name="Sujon Sheikh"
-                                description="sujonsheikh.dev@gmail.com"
-                                avatarProps={{
-                                    src: "https://avatars.githubusercontent.com/u/30373425?v=4"
-                                }}
-                            />
+
                         </div>
                     </div>
                 </div>
