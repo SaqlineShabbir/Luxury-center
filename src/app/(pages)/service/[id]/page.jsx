@@ -1,10 +1,10 @@
 'use client'
 import toast, { Toaster } from 'react-hot-toast';
-import NavBar from '@/app/components/shared/Navbar';
-import Footer from '@/app/components/shared/Footer';
+import NavBar from '../../../components/shared/Navbar';
+import Footer from '../../../components/shared/Footer';
 
 import { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '@/context/AuthProvider';
+import { AuthContext } from '../../../../context/AuthProvider';
 
 const page = ({ params }) => {
     const [data, setData] = useState('')
