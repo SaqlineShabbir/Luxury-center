@@ -2,7 +2,7 @@ import { Radio, RadioGroup } from '@nextui-org/react'
 import Image from 'next/image'
 import card from "/public/assets/icons/card.png";
 import paypal from "/public/assets/icons/paypal.png";
-import Pinkbtn from '@/app/components/Pinkbtn';
+import Pinkbtn from '@/app/components/shared/Pinkbtn';
 
 
 const Book = () => {

@@ -11,14 +11,10 @@ export async function POST(NextRequest) {
         const reqBody = await NextRequest.json();
         const { firstname, lastname, email, phone, message } = reqBody;
 
-
-
-        // Save the new user
+        // Save the message
         const result = await Message.create({
             firstname, lastname, email, phone, message
         });
-
-
 
         // Return success response
         return NextResponse.json({

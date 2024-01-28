@@ -1,4 +1,4 @@
-import Pinkbtn from '@/app/components/Pinkbtn'
+import Pinkbtn from '@/app/components/shared/Pinkbtn'
 import React from 'react'
 
 const Review = () => {

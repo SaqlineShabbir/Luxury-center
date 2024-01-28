@@ -2,7 +2,7 @@
 'use client'
 import MaxWidthWrapper from '@/app/lib/MaxWidthWrapper'
 import React, { useState } from 'react'
-import Pinkbtn from '../Pinkbtn'
+import Pinkbtn from '../shared/Pinkbtn'
 import toast, { Toaster } from 'react-hot-toast'
 
 const Message = () => {

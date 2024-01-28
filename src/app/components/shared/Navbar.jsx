@@ -9,7 +9,7 @@ import links from '@/app/lib/NavLinks';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 import MaxWidthWrapper from '@/app/lib/MaxWidthWrapper';
-import Pinkbtn from '../Pinkbtn';
+import Pinkbtn from './Pinkbtn';
 import { AuthContext } from '@/context/AuthProvider';
 
 

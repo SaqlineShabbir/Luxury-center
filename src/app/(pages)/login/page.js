@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import { useContext, useState } from 'react';
-import Pinkbtn from '@/app/components/Pinkbtn';
+import Pinkbtn from '@/app/components/shared/Pinkbtn';
 import toast, { Toaster } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import NavBar from '@/app/components/shared/Navbar';

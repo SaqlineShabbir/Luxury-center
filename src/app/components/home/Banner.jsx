@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import beautyQueen from "/public/assets/images/banner-queen.png";
 import MaxWidthWrapper from '@/app/lib/MaxWidthWrapper';
-import Pinkbtn from '../Pinkbtn';
+import Pinkbtn from '../shared/Pinkbtn';
 
 const Banner = () => {
     return (
