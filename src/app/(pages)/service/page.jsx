@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Footer from '../../components/shared/Footer';
 import NavBar from '../../components/shared/Navbar';
-import getServices from '@/helpers/getServices';
+import getServices from '../../../helpers/getServices';
 const Service = async () => {
     const services = await getServices()
     return (
