@@ -8,7 +8,7 @@ const page = async () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`http://localhost:3000/api/book-service?userId=${user?._id}`, {
+                const response = await fetch(`https://luxury-center.vercel.app/api/book-service?userId=${user?._id}`, {
                     method: 'GET'
                 });
 
