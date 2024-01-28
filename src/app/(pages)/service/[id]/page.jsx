@@ -9,15 +9,13 @@ import { AuthContext } from '@/context/AuthProvider';
 const page = ({ params }) => {
     const [data, setData] = useState('')
     const { user } = useContext(AuthContext);
-
-
+    //fetch data
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`http://localhost:3000/api/service/${params.id}`, {
+                const response = await fetch(`http://localhost:3000/api/service/${params?.id}`, {
                     method: 'GET'
                 });
-
                 // Handle the response data here
                 const data = await response.json();
                 setData(data)
@@ -29,7 +27,7 @@ const page = ({ params }) => {
         };
 
         fetchData();
-    }, [params.id]); // Include id in the dependency array if it's used inside the useEffect callback
+    }, [params?.id]); // Include id in the dependency array if it's used inside the useEffect callback
 
 
 
