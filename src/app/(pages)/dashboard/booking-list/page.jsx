@@ -1,7 +1,5 @@
 'use client'
-
 import { AuthContext } from "@/context/AuthProvider";
-import Image from "next/image"
 import { useContext, useEffect, useState } from "react";
 
 const page = async () => {

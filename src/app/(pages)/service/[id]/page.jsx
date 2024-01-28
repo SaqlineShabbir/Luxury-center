@@ -6,7 +6,7 @@ import Footer from '@/app/components/shared/Footer';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '@/context/AuthProvider';
 
-const page = async ({ params }) => {
+const page = ({ params }) => {
     const [data, setData] = useState('')
     const { user } = useContext(AuthContext);
 
