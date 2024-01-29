@@ -5,38 +5,42 @@ import { useContext, useEffect, useState } from "react";
 const page = async () => {
     const { user } = useContext(AuthContext);
     const [data, setData] = useState()
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         try {
-    //             const response = await fetch(`https://luxury-center.vercel.app/api/book-service?userId=${user?._id}`, {
-    //                 method: 'GET'
-    //             });
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(`https://luxury-center.vercel.app/api/book-service?userId=${user?._id}`, {
+                    method: 'GET'
+                });
+
+                // Handle the response data here
+                const data = await response.json();
+                setData(data?.response)
 
 
-    //             const data = await response.json();
-    //             setData(data?.response)
+                // You can process 'data' as needed (e.g., update state)
+            } catch (error) {
+                // Handle errors here
+                console.error('Error fetching data:', error);
+            }
+        };
 
-
-    //             // You can process 'data' as needed (e.g., update state)
-    //         } catch (error) {
-    //             // Handle errors here
-    //             console.error('Error fetching data:', error);
-    //         }
-    //     };
-
-    //     fetchData();
-    // }, [user?._id]);
+        fetchData();
+    }, [user?._id]);
 
     return (
         <main>
             <section className='py-10'>
                 <div className='flex justify-start items-center'>
-                    {/* <div className='bg-green-50 w-full p-4 grid grid-cols-1 md:grid-cols-3 gap-4 rounded shadow'>
+                    <div className='bg-green-50 w-full p-4 grid grid-cols-1 md:grid-cols-3 gap-4 rounded shadow'>
                         {
                             data?.map((selectService) => (
                                 <div key={selectService?._id} className="bg-white p-6 rounded-lg space-y-4 shadow">
                                     <div className="flex justify-between items-center">
-                                       
+                                        {/* <Image
+                                            src={selectService?.image}
+                                            alt="service icon"
+                                            className="w-16 h-16"
+                                        /> */}
 
                                         <button className="px-4 py-2 rounded bg-green-100 text-pink-500">{selectService?.status}</button>
                                     </div>
@@ -47,7 +51,7 @@ const page = async () => {
                             ))
                         }
 
-                    </div> */}
+                    </div>
                 </div>
             </section>
         </main>
