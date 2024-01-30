@@ -1,9 +1,13 @@
 import { NextResponse, NextRequest } from 'next/server';
+;
 
 export async function middleware(request) {
     const path = request.nextUrl.pathname;
     const isPublicPath = path === '/login' || path === '/signup' || path === '/';
     const accessToken = request?.cookies.get('accessToken')?.value || '';
+
+
+
     const onlyPublicPath = path === '/login' || path === '/signup'
 
     if (onlyPublicPath && accessToken) {
@@ -25,7 +29,8 @@ export const config = {
         '/dashboard',
         '/dashboard/book',
         '/login',
-        '/signup'
+        '/signup',
+        '/admin-dashboard'
 
 
     ],
