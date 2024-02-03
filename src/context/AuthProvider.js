@@ -14,12 +14,12 @@ const AuthProvider = ({ children }) => {
 
     //fetch the user and provide data
     const fetchUser = async () => {
-        console.log('fetch user  called', document.cookie)
+
         try {
             const response = await fetch('https://luxury-center.vercel.app/api/user');
 
             const result = await response.json();
-            console.log('resullt', result)
+
             if (result?.user) {
                 setUser(result.user);
             }

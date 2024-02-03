@@ -1,5 +1,5 @@
-import { connect } from "@/connectDB/conectDB";
-import Service from "@/mongoose/models/serviceModel";
+import { connect } from "../../../connectDB/conectDB";
+import Service from "../../../mongoose/models/serviceModel";
 import { NextRequest, NextResponse } from "next/server";
 import fs from "fs/promises";
 import path from "path";
@@ -62,6 +62,7 @@ export async function GET(request) {
     try {
 
         const services = await Service.find({})
+        console.log(services)
 
         // Return success response
         return NextResponse.json({

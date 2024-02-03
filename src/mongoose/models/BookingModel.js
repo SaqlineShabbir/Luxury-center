@@ -4,11 +4,11 @@ const { ObjectId } = mongoose.Schema.Types;
 const bookingSchema = new mongoose.Schema({
     user: {
         type: ObjectId,
-        ref: 'users'
+        ref: 'User'
     },
     service: {
         type: ObjectId,
-        ref: 'services'
+        ref: 'Service'
     },
     status: {
         type: String,

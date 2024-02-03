@@ -16,7 +16,7 @@ const Services = async () => {
 
                 {/* card section */}
                 <div className='grid grid-cols-1 md:grid-cols-3  gap-6'>
-                    {services.slice(-3).map((service) => (
+                    {services?.slice(-3).map((service) => (
                         <div className='p-4 rounded-xl space-y-2 text-center hover:shadow-2xl duration-500 cursor-pointer' key={service.id}>
                             <div className='flex justify-center items-center'>
                                 {/* <Image

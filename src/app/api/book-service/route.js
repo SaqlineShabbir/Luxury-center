@@ -1,6 +1,47 @@
-import { connect } from "@/connectDB/conectDB";
-import Booking from "@/mongoose/models/BookingModel";
+import Service from "@/mongoose/models/serviceModel";
+import { connect } from "../../../connectDB/conectDB";
+import Booking from "../../../mongoose/models/BookingModel";
 import { NextResponse } from "next/server";
+
+
+
+export async function GET(request) {
+    await connect();
+
+    try {
+        // Extract user ID from query parameters
+        const searchParams = request.nextUrl.searchParams
+        const userId = searchParams.get('userId')
+
+        if (userId) {
+            // Retrieve bookings for the specified user
+            const response = await Booking.find({ user: userId }).populate({ path: 'service', model: Service }).populate({ path: 'user', model: User })
+
+            return NextResponse.json({
+
+                message: 'Your all bookings',
+                response,
+            });
+        } else {
+
+            const booking = await Booking.find({}).populate('service').populate('user')
+            console.log(booking)
+            const response = NextResponse.json({
+                message: 'booking',
+                booking
+            })
+            return response
+        }
+
+    } catch (error) {
+        console.error(error.message);
+
+        return NextResponse.json({
+            status: 500,
+            message: error.message,
+        });
+    }
+}
 
 export async function POST(NextRequest) {
     // Connect to the database
@@ -46,42 +87,5 @@ export async function POST(NextRequest) {
         return NextResponse.json({
             error: error.message,
         }, { status: 500 });
-    }
-}
-
-
-
-export async function GET(request) {
-    await connect();
-
-    try {
-        // Extract user ID from query parameters
-        const searchParams = request.nextUrl.searchParams
-        const userId = searchParams.get('userId')
-
-        // Check if user ID is provided
-        if (!userId) {
-            return NextResponse.json({
-                status: 400,
-                message: 'User ID is required in the query parameters.',
-            });
-        }
-
-        // Retrieve bookings for the specified user
-        const response = await Booking.find({ user: userId }).populate('service')
-
-
-        return NextResponse.json({
-            status: 200,
-            message: 'Your all bookings',
-            response,
-        });
-    } catch (error) {
-        console.error(error.message);
-
-        return NextResponse.json({
-            status: 500,
-            message: error.message,
-        });
     }
 }

@@ -20,6 +20,7 @@ const page = ({ params }) => {
                 // Handle the response data here
                 const data = await response.json();
                 setData(data)
+                console.log(data)
 
             } catch (error) {
                 // Handle errors here
@@ -28,7 +29,7 @@ const page = ({ params }) => {
         };
 
         fetchData();
-    }, [params?.id]);
+    }, []);
 
 
 

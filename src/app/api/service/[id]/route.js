@@ -1,5 +1,5 @@
-import { connect } from "@/connectDB/conectDB";
-import Service from "@/mongoose/models/serviceModel";
+import { connect } from "../../../../connectDB/conectDB";
+import Service from "../../../../mongoose/models/serviceModel";
 import { NextResponse } from "next/server";
 
 export async function GET(request, { params }) {
