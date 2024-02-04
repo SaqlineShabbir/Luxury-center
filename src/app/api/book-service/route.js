@@ -2,6 +2,7 @@ import Service from "@/mongoose/models/serviceModel";
 import { connect } from "../../../connectDB/conectDB";
 import Booking from "../../../mongoose/models/BookingModel";
 import { NextResponse } from "next/server";
+import User from "../../../mongoose/models/userModel";
 
 
 
@@ -12,19 +13,10 @@ export async function GET(request) {
         // Extract user ID from query parameters
         const searchParams = request.nextUrl.searchParams
         const userId = searchParams.get('userId')
+        console.log('reqq', request.nextUrl.searchParams)
 
-        if (userId) {
-            // Retrieve bookings for the specified user
-            const response = await Booking.find({ user: userId }).populate({ path: 'service', model: Service }).populate({ path: 'user', model: User })
-
-            return NextResponse.json({
-
-                message: 'Your all bookings',
-                response,
-            });
-        } else {
-
-            const booking = await Booking.find({}).populate('service').populate('user')
+        if (!request.nextUrl.searchParams.userId) {
+            const booking = await Booking.find({}).populate({ path: 'service', model: Service }).populate({ path: 'user', model: User })
             console.log(booking)
             const response = NextResponse.json({
                 message: 'booking',
@@ -32,6 +24,20 @@ export async function GET(request) {
             })
             return response
         }
+        if (request.nextUrl.searchParams) {
+            // Retrieve bookings for the specified user
+            console.log('yes')
+            const response = await Booking.find({ user: userId }).populate({ path: 'service', model: Service }).populate({ path: 'user', model: User })
+
+            return NextResponse.json({
+
+                message: 'Your all bookings',
+                response,
+            });
+        }
+
+
+
 
     } catch (error) {
         console.error(error.message);
