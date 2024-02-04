@@ -5,6 +5,7 @@ import Footer from '../../../components/shared/Footer';
 
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../../context/AuthProvider';
+import Image from 'next/image';
 
 const page = ({ params }) => {
 
@@ -68,16 +69,36 @@ const page = ({ params }) => {
         }
     };
 
+
+    console.log(data)
     return (
-        <main>
+        <main className="bg-gray-100 min-h-screen">
             <Toaster />
-            <NavBar></NavBar>
-            <div className='flex flex-col items-center min-h-[90vh]'>
-                <p className='text-2xl text-center'>{data?.service?.title}</p>
-                <p className='text-2xl text-center'>{data?.service?.description}</p>
-                <button onClick={handleBookService}>Book Service</button>
-                {/* <BookServicebtn serviceId={data?.service._id} userId={user?._id} label='Book services'></BookServicebtn> */}
+            <NavBar />
+
+            <div className="flex justify-center items-center h-screen">
+                <div className="bg-white w-full md:max-w-3xl rounded-lg overflow-hidden shadow-lg">
+                    <div className="relative h-80 overflow-hidden">
+                        <Image
+                            className="w-full h-full object-cover object-center"
+                            src={data?.service?.photo}
+                            alt={data?.service?.title}
+                            layout="fill"
+                        />
+                    </div>
+                    <div className="p-8">
+                        <h1 className="text-4xl font-extrabold text-gray-900 mb-4">{data?.service?.title}</h1>
+                        <p className="text-gray-700 text-lg mb-8">{data?.service?.description}</p>
+                        <button
+                            onClick={handleBookService}
+                            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md transition duration-300 focus:outline-none focus:ring focus:border-blue-300"
+                        >
+                            Book Now
+                        </button>
+                    </div>
+                </div>
             </div>
+
             <Footer />
         </main>
     );

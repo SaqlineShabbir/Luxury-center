@@ -65,7 +65,7 @@ const page = async () => {
             {
                 data?.map((selectService) => (
                     <div key={selectService?._id} className="bg-white p-6 rounded-lg space-y-4 shadow">
-                        <div onClick={() => handleCancelBooking(selectService?._id)} className="flex justify-end hover:text-red-400"><MdDeleteForever size={20} /></div>
+                        <div onClick={() => handleCancelBooking(selectService?._id)} className="flex justify-end hover:text-red-400 cursor-pointer"><MdDeleteForever size={20} /></div>
                         <div className="flex justify-between items-center">
                             {/* <Image
                             src={selectService?.image}

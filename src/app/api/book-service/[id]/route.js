@@ -9,8 +9,9 @@ export async function PATCH(request, { params }) {
         const data = await request.json();
         const { id } = params;
 
+
         // Assuming the ID is passed as a parameter in the URL
-        const booking = await Booking.findOneAndUpdate({ _id: params.id }, data, { new: true });
+        const booking = await Booking.findOneAndUpdate({ _id: id }, data, { new: true });
 
         // Check if the booking was found and updated
         if (!booking) {

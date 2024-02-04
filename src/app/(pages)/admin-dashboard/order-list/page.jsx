@@ -19,8 +19,6 @@ const OrderList = () => {
 
     //Fetch all data
     const [data, setData] = useState([]);
-    const [statusState, setStatusState] = useState('Pending')
-    console.log(statusState)
 
     const fetchData = async () => {
         try {
@@ -32,7 +30,7 @@ const OrderList = () => {
             const data = await response.json();
             setData(data?.booking)
             // Log the data to the console
-            console.log(data?.booking);
+
 
         } catch (error) {
             // Handle any errors that occur during the fetch operation
@@ -47,20 +45,24 @@ const OrderList = () => {
 
     //update existing data
     const handleChangeStatus = async (e, id) => {
-        setStatusState(e.target.value)
+        const event = e.target.value
+
+
         try {
             const response = await fetch(`https://luxury-center.vercel.app/api/book-service/${id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ status: statusState }),
+                body: JSON.stringify({ status: event }),
             });
 
+
+
             if (response.ok) {
-                fetchData()
+                await fetchData()
                 toast.success('Updated Successfully')
-                console.log(response)
+
             } else {
                 console.error(`Failed to update status for ID: ${id}`);
             }

@@ -6,11 +6,11 @@ import path from "path";
 import cloudinary from "cloudinary";
 //clowdinary
 
-// cloudinary.config({
-//     cloud_name: 'dpflnwsh8',
-//     api_key: '458275714364253',
-//     api_secret: '62ejvNBrkVxTCClRIDgtW8hhXBs',
-// });
+cloudinary.config({
+    cloud_name: 'dpflnwsh8',
+    api_key: '458275714364253',
+    api_secret: '62ejvNBrkVxTCClRIDgtW8hhXBs',
+});
 export async function POST(request) {
 
     await connect()
@@ -20,19 +20,24 @@ export async function POST(request) {
         const description = body.get('description')
         const price = body.get('price')
 
-        // const file = body.get('photo')
-
-        // console.log(file)
-        // const bytes = await file.arrayBuffer()
-        // const buffer = Buffer.from(bytes)
-        // console.log('bufferrr', buffer)
-
-        // const path = `./files/${file.name}`
-        // // Save the file to the specified path
-        // await fs.writeFile(path, buffer);
+        const file = body.get('photo')
+        console.log(file)
 
 
-        // console.log('File saved at:', path);
+        const bytes = await file.arrayBuffer()
+        const buffer = Buffer.from(bytes)
+        console.log('bufferrr', buffer)
+
+        const path = `./files/${file.name}`
+        // Save the file to the specified path
+        await fs.writeFile(path, buffer);
+
+        console.log('File saved at:', path);
+
+        const cloudresult = await cloudinary.uploader.upload(path, {
+            folder: 'files', // Specify your desired folder in Cloudinary
+            public_id: file.name, // Use the original file name as the public ID
+        });
 
 
         // Uncomment the following lines if you want to save the Cloudinary URL in your database
@@ -40,6 +45,7 @@ export async function POST(request) {
             title,
             description,
             price,
+            photo: cloudresult?.secure_url
 
         });
 

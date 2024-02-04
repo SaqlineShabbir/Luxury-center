@@ -13,11 +13,11 @@ export async function GET(request) {
         // Extract user ID from query parameters
         const searchParams = request.nextUrl.searchParams
         const userId = searchParams.get('userId')
-        console.log('reqq', request.nextUrl.searchParams)
+
 
         if (!request.nextUrl.searchParams.userId) {
             const booking = await Booking.find({}).populate({ path: 'service', model: Service }).populate({ path: 'user', model: User })
-            console.log(booking)
+
             const response = NextResponse.json({
                 message: 'booking',
                 booking
