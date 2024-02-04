@@ -11,7 +11,7 @@ const page = async () => {
 
     const fetchData = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/api/book-service?userId=${user?._id}`, {
+            const response = await fetch(`https://luxury-center.vercel.app/://localhost:3000/api/book-service?userId=${user?._id}`, {
                 method: 'GET'
             });
 
@@ -35,7 +35,7 @@ const page = async () => {
     const handleCancelBooking = async (id) => {
 
         try {
-            const response = await fetch(`http://localhost:3000/api/book-service/${id}`, {
+            const response = await fetch(`https://luxury-center.vercel.app/://localhost:3000/api/book-service/${id}`, {
                 method: 'DELETE',
             });
             if (response.status === 200) {

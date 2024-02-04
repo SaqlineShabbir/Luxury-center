@@ -24,7 +24,7 @@ const OrderList = () => {
 
     const fetchData = async () => {
         try {
-            const response = await fetch('http://localhost:3000/api/book-service', {
+            const response = await fetch('https://luxury-center.vercel.app/://localhost:3000/api/book-service', {
                 method: 'GET'
             });
 
@@ -49,7 +49,7 @@ const OrderList = () => {
     const handleChangeStatus = async (e, id) => {
         setStatusState(e.target.value)
         try {
-            const response = await fetch(`http://localhost:3000/api/book-service/${id}`, {
+            const response = await fetch(`https://luxury-center.vercel.app/://localhost:3000/api/book-service/${id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
