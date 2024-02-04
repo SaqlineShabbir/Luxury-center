@@ -14,7 +14,7 @@ const page = ({ params }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`https://luxury-center.vercel.app/://localhost:3000/api/service/${params?.id}`, {
+                const response = await fetch(`https://luxury-center.vercel.app/api/service/${params?.id}`, {
                     method: 'GET'
                 });
                 // Handle the response data here
@@ -37,7 +37,7 @@ const page = ({ params }) => {
     const handleBookService = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('https://luxury-center.vercel.app/://localhost:3000/api/book-service', {
+            const response = await fetch('https://luxury-center.vercel.app/api/book-service', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

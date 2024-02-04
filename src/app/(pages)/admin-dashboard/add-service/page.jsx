@@ -19,7 +19,7 @@ const AddService = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await fetch('https://luxury-center.vercel.app/://localhost:3000/api/service', {
+            const response = await fetch('https://luxury-center.vercel.app/api/service', {
                 method: 'POST',
                 body: data,
 
