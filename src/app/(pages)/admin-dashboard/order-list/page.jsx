@@ -1,75 +1,75 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
-// function getStatusColor(status) {
-//     switch (status) {
-//         case 'Ongoing':
-//             return 'text-blue-500 rounded-full';
-//         case 'Pending':
-//             return 'text-pink-500 rounded-full';
-//         case 'Completed':
-//             return 'text-green-500 rounded-full';
-//         default:
-//             return 'text-gray-500';
-//     }
-// }
+function getStatusColor(status) {
+    switch (status) {
+        case 'Ongoing':
+            return 'text-blue-500 rounded-full';
+        case 'Pending':
+            return 'text-pink-500 rounded-full';
+        case 'Completed':
+            return 'text-green-500 rounded-full';
+        default:
+            return 'text-gray-500';
+    }
+}
 
 const OrderList = () => {
 
 
     //Fetch all data
-    // const [data, setData] = useState([]);
-    // const [statusState, setStatusState] = useState('Pending')
-    // console.log(statusState)
+    const [data, setData] = useState([]);
+    const [statusState, setStatusState] = useState('Pending')
+    console.log(statusState)
 
-    // const fetchData = async () => {
-    //     try {
-    //         const response = await fetch('https://luxury-center.vercel.app/api/book-service', {
-    //             method: 'GET'
-    //         });
+    const fetchData = async () => {
+        try {
+            const response = await fetch('https://luxury-center.vercel.app/api/book-service', {
+                method: 'GET'
+            });
 
-    //         // Assuming the response is in JSON format, you can extract data like this:
-    //         const data = await response.json();
-    //         setData(data?.booking)
-    //         // Log the data to the console
-    //         console.log(data?.booking);
+            // Assuming the response is in JSON format, you can extract data like this:
+            const data = await response.json();
+            setData(data?.booking)
+            // Log the data to the console
+            console.log(data?.booking);
 
-    //     } catch (error) {
-    //         // Handle any errors that occur during the fetch operation
-    //         console.error('Error fetching data:', error.message);
-    //     }
-    // };
+        } catch (error) {
+            // Handle any errors that occur during the fetch operation
+            console.error('Error fetching data:', error.message);
+        }
+    };
 
-    // Call the fetchData function when the component mounts (empty dependency array)
-    // useEffect(() => {
-    //     fetchData();
-    // }, []);
+    // Call the fetchData function 
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     //update existing data
-    // const handleChangeStatus = async (e, id) => {
-    //     setStatusState(e.target.value)
-    //     try {
-    //         const response = await fetch(`https://luxury-center.vercel.app/api/book-service/${id}`, {
-    //             method: 'PATCH',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //             },
-    //             body: JSON.stringify({ status: statusState }),
-    //         });
+    const handleChangeStatus = async (e, id) => {
+        setStatusState(e.target.value)
+        try {
+            const response = await fetch(`https://luxury-center.vercel.app/api/book-service/${id}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ status: statusState }),
+            });
 
-    //         if (response.ok) {
-    //             fetchData()
-    //             toast.success('Updated Successfully')
-    //             console.log(response)
-    //         } else {
-    //             console.error(`Failed to update status for ID: ${id}`);
-    //         }
+            if (response.ok) {
+                fetchData()
+                toast.success('Updated Successfully')
+                console.log(response)
+            } else {
+                console.error(`Failed to update status for ID: ${id}`);
+            }
 
-    //     } catch (error) {
-    //         console.error('Error updating status:', error.message);
-    //     }
+        } catch (error) {
+            console.error('Error updating status:', error.message);
+        }
 
-    // }
+    }
 
     return (
         <div className="container mx-auto mt-8 overflow-x-auto">
@@ -84,14 +84,14 @@ const OrderList = () => {
                         <th className="py-2 border-b text-lg text-slate-500">Status</th>
                     </tr>
                 </thead>
-                {/* 
+
                 <tbody>
                     {data?.map((item) => (
                         <tr key={item?._id}>
                             <td className="py-2 px-4 border-b text-slate-500">{item?.user.firstname}{item?.user.lastname}</td>
                             <td className="py-2 px-4 border-b text-slate-500 hidden md:block">{item?.user.email}</td>
                             <td className="py-2 px-4 border-b text-slate-500">{item?.service?.title}</td>
-                          
+
                             <td className={`py-2 px-4 border-b ${getStatusColor(item?.status)}`}>
 
                                 <select
@@ -106,7 +106,7 @@ const OrderList = () => {
                             </td>
                         </tr>
                     ))}
-                </tbody> */}
+                </tbody>
             </table>
         </div>
     );
