@@ -10,5 +10,6 @@ export default async function fetchData() {
     } catch (error) {
         console.error('Error fetching data:', error);
         throw error;
+
     }
 }
