@@ -4,7 +4,7 @@ export default async function fetchData() {
             method: 'GET',
         });
         const data = await response.json();
-        console.log(data)
+
 
         return data?.services;
     } catch (error) {
