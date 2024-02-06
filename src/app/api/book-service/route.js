@@ -15,7 +15,16 @@ export async function GET(request) {
         const userId = searchParams.get('userId')
 
         console.log('search', searchParams)
+        if (!userId) {
 
+            const booking = await Booking.find({}).populate({ path: 'service', model: Service }).populate({ path: 'user', model: User })
+
+            const response = NextResponse.json({
+                message: 'booking',
+                booking
+            })
+            return response
+        }
         const response = await Booking.find({ user: userId }).populate({ path: 'service', model: Service }).populate({ path: 'user', model: User })
 
         return NextResponse.json({
@@ -23,6 +32,12 @@ export async function GET(request) {
             message: 'Your all bookings',
             response,
         });
+
+
+
+
+
+
 
     } catch (error) {
         console.error(error.message);
