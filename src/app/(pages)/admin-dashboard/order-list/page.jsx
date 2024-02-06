@@ -58,7 +58,7 @@ const OrderList = () => {
             });
 
 
-
+            console.log(response)
             if (response.ok) {
                 await fetchData()
                 toast.success('Updated Successfully')
