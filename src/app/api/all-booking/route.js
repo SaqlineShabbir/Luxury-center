@@ -8,15 +8,15 @@ export async function GET(request) {
     await connect();
 
     try {
-        if (!request?.nextUrl?.searchParams?.userId) {
-            const booking = await Booking.find({}).populate({ path: 'service', model: Service }).populate({ path: 'user', model: User })
 
-            const response = NextResponse.json({
-                message: 'booking',
-                booking
-            })
-            return response
-        }
+        const booking = await Booking.find({}).populate({ path: 'service', model: Service }).populate({ path: 'user', model: User })
+
+        const response = NextResponse.json({
+            message: 'booking',
+            booking
+        })
+        return response
+
 
 
     } catch (error) {
