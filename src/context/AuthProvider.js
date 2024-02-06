@@ -16,7 +16,7 @@ const AuthProvider = ({ children }) => {
     const fetchUser = async () => {
 
         try {
-            const response = await fetch('http://localhost:3000/api/user');
+            const response = await fetch('https://luxury-center.vercel.app/api/user');
 
             const result = await response.json();
 
