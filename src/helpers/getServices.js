@@ -5,7 +5,6 @@ export default async function fetchData() {
         });
         const data = await response.json();
 
-
         return data?.services;
     } catch (error) {
         console.error('Error fetching data:', error);
