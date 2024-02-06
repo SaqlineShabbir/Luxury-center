@@ -8,17 +8,20 @@ import toast, { Toaster } from "react-hot-toast";
 const page = async () => {
     const { user } = useContext(AuthContext);
     const [data, setData] = useState()
+    const userId = user?._id
+    console.log('id', userId)
 
     const fetchData = async () => {
+
         try {
-            const response = await fetch(`https://luxury-center.vercel.app/api/book-service?userId=${user?._id}`, {
+            const response = await fetch(`https://luxury-center.vercel.app/api/book-service?userId=${userId}`, {
                 method: 'GET'
             });
 
             // Handle the response data here
             const data = await response.json();
             console.log('user', data)
-            setData(data?.booking)
+            setData(data?.response)
 
 
             // You can process 'data' as needed (e.g., update state)
@@ -29,7 +32,7 @@ const page = async () => {
     };
     useEffect(() => {
         fetchData();
-    }, []);
+    }, [userId]);
 
     //cancel booking
     const handleCancelBooking = async (id) => {

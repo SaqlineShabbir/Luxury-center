@@ -1,77 +1,77 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
-function getStatusColor(status) {
-    switch (status) {
-        case 'Ongoing':
-            return 'text-blue-500 rounded-full';
-        case 'Pending':
-            return 'text-pink-500 rounded-full';
-        case 'Completed':
-            return 'text-green-500 rounded-full';
-        default:
-            return 'text-gray-500';
-    }
-}
+// function getStatusColor(status) {
+//     switch (status) {
+//         case 'Ongoing':
+//             return 'text-blue-500 rounded-full';
+//         case 'Pending':
+//             return 'text-pink-500 rounded-full';
+//         case 'Completed':
+//             return 'text-green-500 rounded-full';
+//         default:
+//             return 'text-gray-500';
+//     }
+// }
 
 const OrderList = () => {
 
 
     //Fetch all data
-    const [data, setData] = useState([]);
+    // const [data, setData] = useState([]);
 
-    const fetchData = async () => {
-        try {
-            const response = await fetch('https://luxury-center.vercel.app/api/book-service', {
-                method: 'GET'
-            });
+    // const fetchData = async () => {
+    //     try {
+    //         const response = await fetch('https://luxury-center.vercel.app/api/all-booking', {
+    //             method: 'GET'
+    //         });
 
-            // Assuming the response is in JSON format, you can extract data like this:
-            const data = await response.json();
-            setData(data?.booking)
-            // Log the data to the console
+    //         // Assuming the response is in JSON format, you can extract data like this:
+    //         const data = await response.json();
+    //         setData(data?.booking)
+    //         // Log the data to the console
 
 
-        } catch (error) {
-            // Handle any errors that occur during the fetch operation
-            console.error('Error fetching data:', error.message);
-        }
-    };
+    //     } catch (error) {
+    //         // Handle any errors that occur during the fetch operation
+    //         console.error('Error fetching data:', error.message);
+    //     }
+    // };
 
     // Call the fetchData function 
-    useEffect(() => {
-        fetchData();
-    }, []);
+    // useEffect(() => {
+    //     fetchData();
+    // }, []);
 
     //update existing data
-    const handleChangeStatus = async (e, id) => {
-        const event = e.target.value
+    // const handleChangeStatus = async (e, id) => {
+    //     const event = e.target.value
 
 
-        try {
-            const response = await fetch(`https://luxury-center.vercel.app/api/book-service/${id}`, {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ status: event }),
-            });
+    //     try {
+    //         const response = await fetch(`https://luxury-center.vercel.app/api/book-service/${id}`, {
+    //             method: 'PATCH',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //             },
+    //             body: JSON.stringify({ status: event }),
+    //         });
 
 
 
-            if (response.ok) {
-                await fetchData()
-                toast.success('Updated Successfully')
+    //         if (response.ok) {
+    //             await fetchData()
+    //             toast.success('Updated Successfully')
 
-            } else {
-                console.error(`Failed to update status for ID: ${id}`);
-            }
+    //         } else {
+    //             console.error(`Failed to update status for ID: ${id}`);
+    //         }
 
-        } catch (error) {
-            console.error('Error updating status:', error.message);
-        }
+    //     } catch (error) {
+    //         console.error('Error updating status:', error.message);
+    //     }
 
-    }
+    // }
 
     return (
         <div className="container mx-auto mt-8 overflow-x-auto">
@@ -88,7 +88,7 @@ const OrderList = () => {
                 </thead>
 
                 <tbody>
-                    {data?.map((item) => (
+                    {/* {data?.map((item) => (
                         <tr key={item?._id}>
                             <td className="py-2 px-4 border-b text-slate-500">{item?.user.firstname}{item?.user.lastname}</td>
                             <td className="py-2 px-4 border-b text-slate-500 hidden md:block">{item?.user.email}</td>
@@ -107,7 +107,7 @@ const OrderList = () => {
                                 </select>
                             </td>
                         </tr>
-                    ))}
+                    ))} */}
                 </tbody>
             </table>
         </div>

@@ -11,7 +11,7 @@ import Footer from '@/app/components/shared/Footer';
 import { AuthContext } from '@/context/AuthProvider';
 // import Pinkbtn from '@/app/components/Pinkbtn';
 
-const Signup = () => {
+const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const router = useRouter()
@@ -90,4 +90,4 @@ const Signup = () => {
     )
 }
 
-export default Signup;
+export default Login;

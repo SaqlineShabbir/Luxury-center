@@ -3,8 +3,7 @@ import User from "@/mongoose/models/userModel"
 import { connect } from "../../../../connectDB/conectDB"
 import bcrypt from 'bcryptjs';
 import { NextRequest, NextResponse } from "next/server"
-
-
+import jwt from 'jsonwebtoken';
 
 export async function POST(NextRequest) {
     await connect();
@@ -37,13 +36,27 @@ export async function POST(NextRequest) {
         const saveUser = await newUser.save();
 
         console.log(saveUser);
-
+        //create token 
+        const tokenData = {
+            id: saveUser._id,
+            firstName: saveUser.firstname,
+            lastname: saveUser.lastname,
+            email: saveUser.email
+        }
+        const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET, { expiresIn: "1d" })
         // Return success response
-        return NextResponse.json({
+        const response = NextResponse.json({
             message: "User created successfully",
             success: true,
             saveUser
         });
+        response.cookies.set("accessToken", token, {
+            httpOnly: true,
+
+        })
+
+        return response
+
     } catch (error) {
         console.error(error.message);
 

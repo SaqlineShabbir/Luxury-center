@@ -2,16 +2,18 @@
 import Link from 'next/link'
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Pinkbtn from '@/app/components/shared/Pinkbtn';
 
 import toast, { Toaster } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import NavBar from '@/app/components/shared/Navbar';
 import Footer from '@/app/components/shared/Footer';
+import { AuthContext } from '@/context/AuthProvider';
 // import Pinkbtn from '@/app/components/Pinkbtn';
 
 const Signup = () => {
+    const { fetchUser } = useContext(AuthContext);
     const router = useRouter();
     const [firstname, setFirstname] = useState('')
     const [lastname, setLastName] = useState('')
@@ -35,6 +37,8 @@ const Signup = () => {
 
                 router.push('/');
                 toast.success('Signup successful');
+                fetchUser()
+
             } else {
                 const errorData = await response.json();
                 console.log('Signup failed:', errorData);

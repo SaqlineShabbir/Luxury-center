@@ -11,33 +11,18 @@ export async function GET(request) {
 
     try {
         // Extract user ID from query parameters
-        const searchParams = request.nextUrl.searchParams
+        const searchParams = request?.nextUrl?.searchParams
         const userId = searchParams.get('userId')
 
+        console.log('search', searchParams)
 
-        if (!request.nextUrl.searchParams.userId) {
-            const booking = await Booking.find({}).populate({ path: 'service', model: Service }).populate({ path: 'user', model: User })
+        const response = await Booking.find({ user: userId }).populate({ path: 'service', model: Service }).populate({ path: 'user', model: User })
 
-            const response = NextResponse.json({
-                message: 'booking',
-                booking
-            })
-            return response
-        }
-        if (request.nextUrl.searchParams) {
-            // Retrieve bookings for the specified user
-            console.log('yes')
-            const response = await Booking.find({ user: userId }).populate({ path: 'service', model: Service }).populate({ path: 'user', model: User })
+        return NextResponse.json({
 
-            return NextResponse.json({
-
-                message: 'Your all bookings',
-                response,
-            });
-        }
-
-
-
+            message: 'Your all bookings',
+            response,
+        });
 
     } catch (error) {
         console.error(error.message);
@@ -57,6 +42,7 @@ export async function POST(NextRequest) {
         // Parse the JSON body of the incoming request
         const reqBody = await NextRequest.json();
         const { userId, serviceId } = reqBody;
+        console.log('uuuu', userId)
 
         // Check if the user has already booked the service
         const existingBooking = await Booking.findOne({ service: serviceId, user: userId });
