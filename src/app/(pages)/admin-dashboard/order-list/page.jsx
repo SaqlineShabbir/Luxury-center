@@ -21,6 +21,7 @@ const OrderList = () => {
     const [data, setData] = useState([]);
 
     const fetchData = async () => {
+        console.log('fetch data called')
         try {
             const response = await fetch('https://luxury-center.vercel.app/api/all-booking', {
                 method: 'GET'
@@ -60,7 +61,7 @@ const OrderList = () => {
             //
             console.log(response)
             if (response.ok) {
-                await fetchData()
+                fetchData()
                 toast.success('Updated Successfully')
 
             } else {
