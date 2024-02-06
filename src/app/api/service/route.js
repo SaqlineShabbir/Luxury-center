@@ -21,26 +21,26 @@ export async function POST(request) {
         const price = body.get('price')
 
         const file = body.get('photo')
-        console.log(file)
+
 
 
         const bytes = await file.arrayBuffer()
         const buffer = Buffer.from(bytes)
-        console.log('bufferrr', buffer)
+
 
         const path = `./files/${file.name}`
         // Save the file to the specified path
         await fs.writeFile(path, buffer);
 
-        console.log('File saved at:', path);
+
 
         const cloudresult = await cloudinary.uploader.upload(path, {
-            folder: 'files', // Specify your desired folder in Cloudinary
-            public_id: file.name, // Use the original file name as the public ID
+            folder: 'files',
+            public_id: file.name,
         });
 
 
-        // Uncomment the following lines if you want to save the Cloudinary URL in your database
+
         const response = await Service.create({
             title,
             description,
@@ -69,7 +69,7 @@ export async function GET(request) {
     try {
 
         const services = await Service.find({})
-        console.log(services)
+
 
         // Return success response
         return NextResponse.json({
