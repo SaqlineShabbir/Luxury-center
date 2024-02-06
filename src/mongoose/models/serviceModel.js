@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 const serviceSchema = new mongoose.Schema({
     title: {
         type: String,
+        unique: true,
         required: [true, "Title is required"],
 
         trim: true

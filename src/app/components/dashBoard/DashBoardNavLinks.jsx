@@ -8,11 +8,11 @@ import clsx from 'clsx';
 
 const links = [
     { name: 'Home', href: '/dashboard', icon: FaHome },
-    {
-        name: 'Book',
-        href: '/dashboard/book',
-        icon: MdAddShoppingCart,
-    },
+    // {
+    //     name: 'Book',
+    //     href: '/dashboard/book',
+    //     icon: MdAddShoppingCart,
+    // },
     { name: 'Booking list', href: '/dashboard/booking-list', icon: MdListAlt },
     { name: 'Review', href: '/dashboard/review', icon: MdOutlineRateReview },
 ];

@@ -15,13 +15,13 @@ const page = ({ params }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`https://luxury-center.vercel.app/api/service/${params?.id}`, {
+                const response = await fetch(`http://lhttps://luxury-center.vercel.app//api/service/${params?.id}`, {
                     method: 'GET'
                 });
                 // Handle the response data here
                 const data = await response.json();
                 setData(data)
-                console.log(data)
+
 
             } catch (error) {
                 // Handle errors here
@@ -38,7 +38,7 @@ const page = ({ params }) => {
     const handleBookService = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('https://luxury-center.vercel.app/api/book-service', {
+            const response = await fetch('http://lhttps://luxury-center.vercel.app//api/book-service', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -70,15 +70,17 @@ const page = ({ params }) => {
     };
 
 
-    console.log(data)
+
     return (
         <main className="bg-gray-100 min-h-screen">
             <Toaster />
             <NavBar />
 
-            <div className="flex justify-center items-center h-screen">
-                <div className="bg-white w-full md:max-w-3xl rounded-lg overflow-hidden shadow-lg">
+            <div className="flex justify-center items-center ">
+                <div className="bg-white w-full min-h-[100vh] rounded-lg overflow-hidden">
+
                     <div className="relative h-80 overflow-hidden">
+
                         <Image
                             className="w-full h-full object-cover object-center"
                             src={data?.service?.photo}
@@ -86,12 +88,16 @@ const page = ({ params }) => {
                             layout="fill"
                         />
                     </div>
-                    <div className="p-8">
-                        <h1 className="text-4xl font-extrabold text-gray-900 mb-4">{data?.service?.title}</h1>
-                        <p className="text-gray-700 text-lg mb-8">{data?.service?.description}</p>
+                    <div className="px-8 pt-10 md:px-[260px] flex flex-col justify-center">
+                        <h1 className="text-4xl font-extrabold text-gray-900 mb-4 text-center">{data?.service?.title}</h1>
+
+                        <p className="text-gray-700 text-lg mb-8 text-center">{data?.service?.description}</p>
+
+                    </div>
+                    <div className='flex justify-center'>
                         <button
                             onClick={handleBookService}
-                            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md transition duration-300 focus:outline-none focus:ring focus:border-blue-300"
+                            className="bg-green-500  hover:bg-green-700 text-white px-10 py-1 rounded-md transition duration-300 focus:outline-none focus:ring focus:border-purple-300"
                         >
                             Book Now
                         </button>

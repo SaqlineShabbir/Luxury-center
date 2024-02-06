@@ -16,7 +16,7 @@ import { AuthContext } from '@/context/AuthProvider';
 const NavBar = () => {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
     const { user } = useContext(AuthContext);
-
+    console.log(user)
     const pathname = usePathname();
 
     const toggleMobileMenu = () => {
@@ -50,6 +50,7 @@ const NavBar = () => {
                                 <p className='text-lg text-slate-500'>{link.name}</p>
                             </Link>
                         ))}
+                        {user?.role === 'Admin' && <Link href="/admin-dashboard"><p className='text-lg text-slate-500'>Admin</p></Link>}
                         {!user?.email && <Link href="/login" ><button className='px-10 py-1 bg-green-300 text-medium text-slate-100 font-semibold mt-2'>Login</button></Link>}
                     </div>
 

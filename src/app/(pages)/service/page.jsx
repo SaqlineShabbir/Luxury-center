@@ -8,6 +8,7 @@ const Service = async () => {
     const services = await getServices()
 
 
+
     return (
         <main>
             <NavBar />
@@ -17,10 +18,10 @@ const Service = async () => {
                 </div>
 
                 {/* card section */}
-                <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+                <div className='grid grid-cols-1 md:grid-cols-3 gap-6 py-20'>
                     {services?.map((service) => (
                         <Link key={service?._id} href={`/service/${service?._id}`}>
-                            <div className='group block rounded-md overflow-hidden hover:shadow-lg relative'>
+                            <div className='group block rounded-md overflow-hidden hover:shadow-lg relative border'>
                                 <div className='relative w-full h-48'>
                                     <Image
                                         src={service?.photo}
@@ -35,8 +36,8 @@ const Service = async () => {
                                 </div>
                                 <div className='p-4 bg-white'>
                                     <h3 className='text-xl font-semibold mb-2'>{service?.title}</h3>
-                                    <p className='text-green-500 mb-1'>{service?.price}</p>
-                                    <p className='text-gray-500'>{service?.description}</p>
+                                    <p className='text-green-500 mb-1'>$ {service?.price}</p>
+                                    <p className='text-gray-500'>{service?.description.slice(0, 170)}</p>
                                 </div>
                             </div>
                         </Link>

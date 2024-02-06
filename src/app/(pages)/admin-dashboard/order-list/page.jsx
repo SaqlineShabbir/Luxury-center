@@ -22,7 +22,7 @@ const OrderList = () => {
 
     const fetchData = async () => {
         try {
-            const response = await fetch('https://luxury-center.vercel.app/api/book-service', {
+            const response = await fetch('http://lhttps://luxury-center.vercel.app//api/book-service', {
                 method: 'GET'
             });
 
@@ -49,7 +49,7 @@ const OrderList = () => {
 
 
         try {
-            const response = await fetch(`https://luxury-center.vercel.app/api/book-service/${id}`, {
+            const response = await fetch(`http://lhttps://luxury-center.vercel.app//api/book-service/${id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

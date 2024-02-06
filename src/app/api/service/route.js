@@ -65,6 +65,7 @@ export async function POST(request) {
 }
 
 export async function GET(request) {
+    await connect()
     try {
 
         const services = await Service.find({})

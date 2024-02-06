@@ -4,6 +4,6 @@ const links = [
 
     { name: "Contact-Us", href: "/contact-us" },
     { name: "Dashboard", href: "/dashboard" },
-    { name: "Admin", href: "/admin-dashboard" },
+    // { name: "Admin", href: "/admin-dashboard" },
 ];
 export default links;
