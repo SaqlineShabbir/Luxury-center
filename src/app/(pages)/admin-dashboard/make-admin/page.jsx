@@ -21,14 +21,15 @@ const MakeAdmin = () => {
 
             if (response.ok) {
 
-                toast.success('Updated Successfully')
+                toast.success('Made Successfully')
 
             } else {
-                console.error(`Failed to update `);
+                toast.error('CanNot Made')
             }
 
         } catch (error) {
             console.error('Error updating status:', error.message);
+            toast.error(error.message)
         }
 
     }

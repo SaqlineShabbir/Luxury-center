@@ -30,6 +30,12 @@ export async function PATCH(request) {
         const searchParams = request?.nextUrl?.searchParams
         const email = searchParams.get('email')
         const data = await request.json();
+        const isExist = await User.findOne({ email: email })
+        if (!isExist) {
+            return NextResponse.json(
+                { status: 'Failed', error: 'Can Not Find' }
+            )
+        }
         const result = await User.findOneAndUpdate({ email: email }, data, { new: true })
 
         return NextResponse.json({
