@@ -9,17 +9,17 @@ const ContactUs = () => {
         {
             icon: <MdOutlineMarkEmailRead className="w-20 h-20 text-blue-500 mb-2" />,
             label: 'Email',
-            value: 'sujonsheikh.dev@gmail.com',
+            value: 'sabbir0911hossain@gmail.com',
         },
         {
             icon: <FaPhoneVolume className="w-20 h-20 text-green-500 mb-2" />,
             label: 'Phone',
-            value: '+880 1999-986919',
+            value: '+880 1710547636',
         },
         {
             icon: <MdLocationCity className="w-20 h-20 text-red-500 mb-2" />,
             label: 'Location',
-            value: 'Magura, Bangladesh',
+            value: 'Chattgram, Bangladesh',
         },
     ];
 

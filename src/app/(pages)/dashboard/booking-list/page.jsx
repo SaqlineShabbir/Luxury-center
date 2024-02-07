@@ -80,7 +80,7 @@ const page = async () => {
                         </div>
 
                         <h2 className="text-xl text-slate-700 font-bold">{selectService?.service?.title}</h2>
-                        <p className="text-slate-500 text-sm">{selectService?.service?.description}</p>
+                        <p className="text-slate-500 text-sm">{selectService?.service?.description?.slice(0, 100)}</p>
 
                     </div>
                 ))

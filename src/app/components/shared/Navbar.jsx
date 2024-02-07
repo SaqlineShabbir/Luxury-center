@@ -16,7 +16,7 @@ import { AuthContext } from '@/context/AuthProvider';
 const NavBar = () => {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
     const { user } = useContext(AuthContext);
-    console.log(user)
+
     const pathname = usePathname();
 
     const toggleMobileMenu = () => {

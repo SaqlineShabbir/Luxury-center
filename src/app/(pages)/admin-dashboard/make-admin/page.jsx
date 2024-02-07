@@ -24,7 +24,7 @@ const MakeAdmin = () => {
                 toast.success('Made Successfully')
 
             } else {
-                toast.error('CanNot Made')
+                toast.error('Can not Make')
             }
 
         } catch (error) {
