@@ -12,7 +12,7 @@ export async function GET(request) {
         const searchParams = request?.nextUrl?.searchParams
         const userId = searchParams.get('userId')
 
-        console.log('search', userId)
+
 
         if (userId) {
             const response = await Booking.find({ user: userId }).populate({ path: 'service', model: Service }).populate({ path: 'user', model: User })
@@ -29,7 +29,9 @@ export async function GET(request) {
             message: 'booking',
             booking
         })
+
         return response
+
 
     } catch (error) {
         console.error(error.message);
@@ -49,7 +51,7 @@ export async function POST(NextRequest) {
         // Parse the JSON body of the incoming request
         const reqBody = await NextRequest.json();
         const { userId, serviceId } = reqBody;
-        console.log('uuuu', userId)
+
 
         // Check if the user has already booked the service
         const existingBooking = await Booking.findOne({ service: serviceId, user: userId });

@@ -81,7 +81,7 @@ const OrderList = () => {
                 <thead>
                     <tr>
                         <th className="py-2 border-b text-lg text-slate-500">Name</th>
-                        <th className="py-2 border-b text-lg text-slate-500 hidden md:block">Email</th>
+                        <th className="py-6 border-b text-lg text-slate-500 hidden md:block">Email</th>
                         <th className="py-2 border-b text-lg text-slate-500">Service Title</th>
                         {/* <th className="py-2 border-b text-lg text-slate-500 hidden md:block">Pay With</th> */}
                         <th className="py-2 border-b text-lg text-slate-500">Status</th>
@@ -91,8 +91,8 @@ const OrderList = () => {
                 <tbody>
                     {data?.map((item) => (
                         <tr key={item?._id}>
-                            <td className="py-2 px-4 border-b text-slate-500">{item?.user.firstname}{item?.user.lastname}</td>
-                            <td className="py-2 px-4 border-b text-slate-500 hidden md:block">{item?.user.email}</td>
+                            <td className="py-2 px-4 border-b text-slate-500">{item?.user?.firstname}{item?.user?.lastname}</td>
+                            <td className="py-5 px-4 border-b text-slate-500 hidden md:block">{item?.user?.email}</td>
                             <td className="py-2 px-4 border-b text-slate-500">{item?.service?.title}</td>
 
                             <td className={`py-2 px-4 border-b ${getStatusColor(item?.status)}`}>

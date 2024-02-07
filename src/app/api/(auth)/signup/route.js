@@ -29,7 +29,8 @@ export async function POST(NextRequest) {
             firstname,
             lastname,
             email,
-            password: hashedPassword
+            password: hashedPassword,
+            role: "User"
         });
 
         // Save the new user

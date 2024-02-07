@@ -44,7 +44,7 @@ const AddService = () => {
         <main>
             <section className='py-10'>
                 <div className='flex justify-start items-center'>
-                    <form onSubmit={handleSubmit} className='bg-pink-50 w-[500px] p-10 shadow space-y-4 rounded'>
+                    <form onSubmit={handleSubmit} className='bg-green-50 w-[500px] p-10 shadow space-y-4 rounded'>
 
                         <div>
                             <label className='text-lg text-slate-500'>Service title</label>
@@ -79,7 +79,7 @@ const AddService = () => {
 
                         <label className='text-lg text-slate-500' >Image</label>
                         <div className='flex space-x-2'>
-                            <label className="flex justify-center items-center px-4 py-2 bg-pink-100 text-pink-500 rounded-md cursor-pointer border-2 border-pink-300 w-full">
+                            <label className="flex justify-center items-center px-4 py-2 bg-green-100 text-green-500 rounded-md cursor-pointer border-2 border-green-300 w-full">
                                 <IoCloudUploadOutline className="w-8 h-8 mr-4" />
                                 Upload File
                                 <input

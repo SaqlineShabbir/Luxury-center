@@ -50,7 +50,7 @@ const NavBar = () => {
                                 <p className='text-lg text-slate-500'>{link.name}</p>
                             </Link>
                         ))}
-                        {user?.role === 'Admin' && <Link href="/admin-dashboard"><p className='text-lg text-slate-500'>Admin</p></Link>}
+                        {user?.role === 'Admin' && <Link className='rounded-md font-medium hover:border-b-2 duration-500 hover:text-blue-500 md:flex-none md:justify-start md:p-2 md:px-3' href="/admin-dashboard"><p className='text-lg  text-slate-500 font-semibold'>Admin</p></Link>}
                         {!user?.email && <Link href="/login" ><button className='px-10 py-1 bg-green-300 text-medium text-slate-100 font-semibold mt-2'>Login</button></Link>}
                     </div>
 
