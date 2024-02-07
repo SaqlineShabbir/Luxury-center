@@ -48,7 +48,7 @@ export async function POST(request) {
             photo: cloudresult?.secure_url
 
         });
-
+        console.log(response)
         // Return success response
         return NextResponse.json({
             message: "Service created successfully",
