@@ -3,7 +3,10 @@ import NavBar from '../../components/shared/Navbar';
 import MaxWidthWrapper from '../../lib/MaxWidthWrapper';
 import { MdOutlineMarkEmailRead, MdLocationCity } from 'react-icons/md';
 import { FaPhoneVolume } from 'react-icons/fa6';
-
+export const metadata = {
+    title: "Contact Us | Luxury Living ",
+    description: "Welcome to Luxury Living",
+};
 const ContactUs = () => {
     const contactMethods = [
         {

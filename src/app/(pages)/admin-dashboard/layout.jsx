@@ -1,6 +1,9 @@
 import AdminDashBoardSideNav from "@/app/components/adminDashBoard/AdminDashBoardSideNav";
 
-
+export const metadata = {
+    title: "Admin Dashboard | Luxury Living ",
+    description: "Welcome to Luxury Living",
+};
 
 const AdminDashBoardLayout = ({ children }) => {
     return (

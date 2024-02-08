@@ -1,7 +1,10 @@
 import DashBoardSideNav from "@/app/components/dashBoard/SideNav";
 import { User } from "@nextui-org/react";
 
-
+export const metadata = {
+    title: "Dashboard | Luxury Living ",
+    description: "Welcome to Luxury Living",
+};
 const DashBoardLayout = ({ children }) => {
     return (
         <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">

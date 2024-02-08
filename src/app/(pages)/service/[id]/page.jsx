@@ -7,6 +7,7 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../../context/AuthProvider';
 import Image from 'next/image';
 
+
 const page = ({ params }) => {
 
     const [data, setData] = useState('')

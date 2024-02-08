@@ -21,7 +21,7 @@ const OrderList = () => {
     const [data, setData] = useState([]);
 
     const fetchData = async () => {
-        console.log('fetch data called')
+
         try {
             const response = await fetch('https://luxury-center.vercel.app/api/book-service/', {
                 method: 'GET'

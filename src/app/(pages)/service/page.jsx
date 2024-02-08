@@ -3,6 +3,10 @@ import Footer from '../../components/shared/Footer';
 import NavBar from '../../components/shared/Navbar';
 import getServices from '../../../helpers/getServices';
 import Image from 'next/image';
+export const metadata = {
+    title: "Services | Luxury Living ",
+    description: "Welcome to Luxury Living",
+};
 const Service = async () => {
 
     const services = await getServices()

@@ -57,7 +57,7 @@ const ManageServices = () => {
     }
 
     const handleSendId = (sdata) => {
-        console.log(sdata)
+
         setServiceData(sdata)
     }
 

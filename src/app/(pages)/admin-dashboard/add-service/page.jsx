@@ -24,13 +24,12 @@ const AddService = () => {
                 body: data,
 
             });
+            console.log(response)
 
             if (response.ok) {
 
                 toast.success('successfully created');
-                setDescription('')
-                setPrice('')
-                setTitle('')
+
             } else {
                 toast.error('failed to create');
             }
