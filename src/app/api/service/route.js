@@ -60,7 +60,7 @@ export async function POST(request) {
         console.error('Error creating service:', error);
         return NextResponse.json({
             error: error.message
-        }, { status: 500 });
+        });
     }
 }
 
