@@ -38,8 +38,8 @@ const Login = () => {
                 toast.error(errorData.message || 'Login failed');
             }
         } catch (error) {
-            console.error('Signup failed:', error.message);
-            toast.error('Signup failed');
+            console.error('login failed:', error.message);
+            toast.error('login failed');
         }
     }
     return (
